@@ -175,10 +175,5 @@
 //从左开始计算，整个表达式结果是最后一个表达式结果
 int main()
 {
-	int a = 3;
-	int b = 8;
-	int c = 4;
-	int d = (a = b - c, b = a + 2, c = a + b);
-	printf("%d\n", d);
 	return 0;
 }
