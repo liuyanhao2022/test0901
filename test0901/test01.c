@@ -173,12 +173,51 @@
 
 //逗号表达式	（exp1,exp2,exp3,...expn)
 //从左开始计算，整个表达式结果是最后一个表达式结果
-int main()
-{
-	int a = 3;
-	int b = 8;
-	int c = 4;
-	int d = (a = b - c, b = a + 2, c = a + b);
-	printf("%d\n", d);
-	return 0;
-}
+//int main()
+//{
+//	int a = 3;
+//	int b = 8;
+//	int c = 4;
+//	int d = (a = b - c, b = a + 2, c = a + b);
+//	printf("%d\n", d);
+//	return 0;
+//}
+
+//2022.09.04学习
+//1.下标引用操作符，在数组中[],从零开始，
+//int main()
+//{
+//	int arr[6] = { 1,2,3,4,5,6 };
+//	printf("%d\n", arr[4]);//打印数组中第五个元素
+//	return 0;
+//}
+
+//2.函数调用操作符    （）
+//int main()
+//{
+//	printf("100");//调用函数时，函数名后的（）就时函数调用操作符
+//	return 0;
+//}
+
+//关键字
+//auto 自动		每个局部变量都是用auto修饰的，变量自动创建，自动销毁。
+//新C语言也有其他用法
+//extern		申明外部符号的
+//register		寄存器关键字	为了提高处理效率
+//int main()
+//{
+//	register int a = 19;//建议放在寄存器中
+//	return 0;
+//}
+// 计算机储存方式
+//CPU从寄存器中取值							寄存器			空间很小，速度快
+//											高速缓存		几十MB
+//											内存			8G-32G
+//											硬盘
+//											网盘
+
+//signed	有符号的
+//unsigned	无符号的
+//static		静态的
+//union			联合体（共用体）
+//void		无
