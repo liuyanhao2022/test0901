@@ -221,3 +221,74 @@
 //static		静态的
 //union			联合体（共用体）
 //void		无
+
+//09.12学习
+//while 循环中，break用于永久的终止循环
+//int main()
+//{
+//	int i = 1;
+//	while (i <= 10)
+//	{
+//		if (5 == i)//i==5，时跳出循环
+//		{
+//			break;
+//		}
+//		printf("%d\n", i);
+//		i++;
+//	}
+//	return 0;
+//}
+
+//while循环中，continue的作用跳过本次continue后的代码，直接回到判断部分，看是否进行下一次循环
+//int main()
+//{
+//	int i = 1;
+//	while (i <= 10)
+//	{
+//		if (5 == i)
+//		{
+//			continue;
+//		}
+//		printf("%d\n", i);
+//		i++;
+//	}
+//	return 0;
+//}
+
+//getchar	获取一个字符，标准输入，键盘上
+//EOF(end 0f file)	文件结束标志，键盘上按 ctrl+z,相当与EOF
+//putchar	输出一个字符
+//int main()
+//{
+//	int ch = 0;
+//	while ((ch = getchar()) != EOF)
+//	{
+//		putchar(ch);
+//	}
+//	return 0;
+//}
+
+int main()
+{
+	char PassWord[20] = { 0 };
+	printf("请输入密码：>");
+	scanf("%s", PassWord);
+	//清理缓存区，直到读到\n，相当于回车
+	int tmp = 0;
+	while ((tmp = getchar()) !='\n')
+	{
+		;
+	}
+	printf("再次确认密码(Y/N)：>");
+	int ch = 0;
+	getchar(ch);
+	if (ch == 'Y')
+	{
+		printf("确认成功");
+	}
+	else
+	{
+		printf("确认失败");
+	}
+	return 0;
+}
