@@ -268,27 +268,53 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	char PassWord[20] = { 0 };
+//	printf("请输入密码：>");
+//	scanf("%s", PassWord);
+//	//清理缓存区，直到读到\n，相当于回车
+//	int tmp = 0;
+//	while ((tmp = getchar()) !='\n')
+//	{
+//		;
+//	}
+//	printf("再次确认密码(Y/N)：>");
+//	int ch = 0;
+//	ch = getchar();
+//	if (ch == 'Y')
+//	{
+//		printf("确认成功");
+//	}
+//	else
+//	{
+//		printf("确认失败");
+//	}
+//	return 0;
+//}
+
+//09.19学习
+//do
+//{
+//
+//} while (true);先执行一次循环体，再判断while的表达式，如果为假，则结束循环
+//int main()
+//{
+//	int a = 1;
+//	do
+//	{
+//		printf("%d ", a);
+//			a++;
+//	} while (10 >= a);
+//	return 0;
+//}
 int main()
 {
-	char PassWord[20] = { 0 };
-	printf("请输入密码：>");
-	scanf("%s", PassWord);
-	//清理缓存区，直到读到\n，相当于回车
-	int tmp = 0;
-	while ((tmp = getchar()) !='\n')
+	int a = 1;
+	do
 	{
-		;
-	}
-	printf("再次确认密码(Y/N)：>");
-	int ch = 0;
-	getchar(ch);
-	if (ch == 'Y')
-	{
-		printf("确认成功");
-	}
-	else
-	{
-		printf("确认失败");
-	}
+		printf("%d ", a);
+			a++;
+	} while (10 >= a);
 	return 0;
 }
