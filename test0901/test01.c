@@ -339,3 +339,69 @@
 //	return 0;
 //}
 
+//计算n的阶乘
+//int main()
+//{
+//	int a = 0;
+//	int b = 1;
+//	int c = 1;
+//	scanf("%d",&b);
+//	for ( a = 1; a <= b; a++)
+//	{
+//		c *= a;
+//	}
+//	printf("%d\n", c);
+//	return 0;
+//}
+
+//计算1-10的阶乘和
+//int main()//方法一
+//{
+//	int a = 0;
+//	int b = 0;
+//	int d = 0;
+//	for (a = 1; a <= 10; a++)
+//	{
+//		int c = 1;
+//		for (b = 1; b <= a; b++)
+//		{
+//			c *= b;
+//			
+//		}
+//		d = c + d;
+//	}
+//	printf(" % d\n", d);
+//	return 0;
+//}
+
+//二分法，求一个有序数组的中的某个值
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10,11,12 };
+	int k = 8;//要查找的数字
+	int sz = sizeof(arr) / sizeof(arr[0]);//求数组中元素的个数；
+	int left = 0;
+	int right = sz - 1;
+	while (left <= right )
+	{
+		int mid = (left + right) / 2;
+		if (arr[mid] < k)
+		{
+			left = mid + 1;
+		}
+		else if (arr[mid] > k)
+		{
+			right = mid - 1;
+		}
+		else
+		{
+			printf("找到了:%d", mid);
+			break;
+		}
+	}
+	if (left > right)
+	{
+		printf("找不到\n");
+	}
+	return 0;
+}
