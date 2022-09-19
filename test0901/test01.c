@@ -298,7 +298,7 @@
 //{
 //
 //} while (true);先执行一次循环体，再判断while的表达式，如果为假，则结束循环
-//int main()
+//int main()//输出1-10
 //{
 //	int a = 1;
 //	do
@@ -308,13 +308,34 @@
 //	} while (10 >= a);
 //	return 0;
 //}
-int main()
-{
-	int a = 1;
-	do
-	{
-		printf("%d ", a);
-			a++;
-	} while (10 >= a);
-	return 0;
-}
+
+//int main()
+//{
+//	int a = 1;
+//	do
+//	{
+//		if ( 6 == a )//a==6,跳出当前循环
+//		{
+//			break;
+//		}
+//		printf("%d ", a);
+//			a++;
+//	} while (10 >= a);
+//	return 0;
+//}
+// 
+//int main()
+//{
+//	int a = 1;
+//	do
+//	{
+//		if ( 6 == a )//a==6,省略后面的循环部分
+//		{
+//			continue;
+//		}
+//		printf("%d ", a);
+//			a++;
+//	} while (10 >= a);
+//	return 0;
+//}
+
