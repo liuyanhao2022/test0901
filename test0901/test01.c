@@ -428,27 +428,210 @@
 //	return 0;
 //}
 
+//int main()//最多输入三次密码，三次都错误，退出程序
+//{
+//	printf("登录请输入密码：>");
+//	char PassWord[20] = "12345abc";
+//	char UserPassWord[20] = "0";
+//	int i = 1;
+//	
+//	
+//	while (i < 4)
+//	{
+//		scanf("%s", UserPassWord);
+//		if (strcmp(UserPassWord,PassWord) == 0)//strcmp 比较两个字符串，相等返回0
+//		{
+//			printf("密码正确，登录成功\n");
+//			break;
+//		}
+//		else if (i < 3)
+//		{
+//			i++;
+//			printf("密码错误，请重新输入：>");
+//		}
+//		else
+//		{
+//			printf("三次密码输入错误，程序退出");
+//				break;
+//		}
+//		
+//	}
+//	return 0;
+//}
+
+//09.20学习
+//猜数字游戏
+//生成1个1-100的随机数，猜对了，可以继续选择玩，猜错了，继续猜
+
+//#include <stdlib.h>
+//#include <time.h>
+//void menu()
+//{
+//	printf("########################\n");
+//	printf("###### 猜数字游戏 ######\n");
+//	printf("########################\n");
+//	printf("*                      *\n");
+//	printf("************************\n");
+//	printf("******   1.开始    *****\n");
+//	printf("******   0.退出    *****\n");
+//	printf("************************\n");
+//}
+
+//void game()//猜数字游戏的实现
+//{
+//	//1.生成随机数
+//	//rand 函数生成一个0-32767之间的数
+//	int ret = rand()%100+1;//%100的余数是0-99，再加1就是，1-100
+//	int guess = 0;
+//	//2.猜数字
+//	while (1)
+//	{
+//		printf("请猜数字：>");
+//		scanf("%d", &guess);
+//		if (guess > ret)
+//		{
+//			printf("猜大了");
+//		}
+//		else if (guess < ret)
+//		{
+//			printf("猜小了");
+//		}
+//		else
+//		{
+//			printf("恭喜你，猜对了");
+//			break;
+//		}
+//	}
+//	
+//	printf("%d\n", ret);
+//}
+//int main()
+//{
+//	int input = 0;
+//	srand((unsigned int)time(NULL));//时间戳
+//	do
+//	{
+//		menu();//打印菜单
+//		printf("请选择：>");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:
+//			game();
+//			break;
+//		case 0:	
+//			printf("退出游戏\n");
+//			break;
+//		default:
+//			printf("输入错误，请重新输入\n");
+//			break;
+//		}
+//	} while (input);
+//	return 0;
+//}
+
+//2022.09.28
+//F10---逐过程
+//F11---逐语句，调用函数的也可以监视
+
+//int main()//求3个输入值的从大到小输出(方法一)
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	scanf("%d%d%d", &a, &b, &c);
+//	if (a < b)
+//	{
+//		int tmp = b;
+//		b = a;
+//		a = tmp;
+//	}
+//	if (a < c)
+//	{
+//		int tmp = c;
+//		c = a;
+//		a = tmp;
+//	}
+//	if (b < c)
+//	{
+//		int tmp = c;
+//		c = b;
+//		b = c;
+//	}
+//	printf("这三个数字从大到小的顺序是：%d %d %d", a, b, c);
+//	return 0;
+//}
+
+//2022.09.29
+//求3个输入值的从大到小输出(方法二)没写出来
+//void comp(tmp1, tmp2)
+//{
+//	if (tmp1 < tmp2)
+//	{
+//		int big = tmp2;
+//		tmp2 = tmp1;
+//		tmp1 = big;
+//	}
+//	return tmp1, tmp2;
+//}
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	scanf("%d%d%d", &a, &b, &c);
+//	comp(a, b);
+//	comp(a, c);
+//	comp(b, c);
+//	printf("这三个数字从大到小的顺序是：%d %d %d", a, b, c);
+//	return 0;
+//}
+
+////打印0-100之间3的倍数
+//int main()
+//{
+//	for (int i = 1; i < 100; i++)
+//	{
+//		if (i % 3 == 0)
+//		{
+//			printf("%d\n", i);
+//		}
+//	}
+//	return 0;
+//}
+
+//求两个数值的最大公约数(方法一)
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	scanf("%d%d", &a, &b);
+//	int max = a > b ? b : a;
+//	while (1)
+//	{
+//		if (a % max == 0 && b % max == 0)
+//		{
+//			printf("这两个数的最大公约数是：%d", max);
+//			break;
+//		}
+//		max--;
+//	}
+//	return 0;
+//}
+
+//求两个数值的最大公约数(方法二)
+//辗转相除法
 int main()
 {
-	printf("登录请输入密码：>");
-	char PassWord[] = "1,2,3,4,5,a,b,c";
-	char UserPassWord[] = "0";
-	int i = 1;
-	
-	
-	while (i < 4)
+	int a = 0;
+	int b = 0;
+	scanf("%d%d", &a, &b);
+	int max = 0;
+	while (max = a % b)
 	{
-		scanf("%s", &UserPassWord);
-		if (UserPassWord == PassWord)
-		{
-			printf("密码正确，登录成功\n");
-			break;
-		}
-		else
-		{
-			printf("密码错误，请重新输入");
-				i++;
-		}
+		a = b;
+		b = max;
 	}
+	printf("这两个数的最大公约数是：%d", b);
 	return 0;
 }
