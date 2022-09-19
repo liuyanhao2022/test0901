@@ -375,33 +375,80 @@
 //}
 
 //二分法，求一个有序数组的中的某个值
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10,11,12 };
+//	int k = 8;//要查找的数字
+//	int sz = sizeof(arr) / sizeof(arr[0]);//求数组中元素的个数；
+//	int left = 0;
+//	int right = sz - 1;
+//	while (left <= right )
+//	{
+//		int mid = (left + right) / 2;
+//		if (arr[mid] < k)
+//		{
+//			left = mid + 1;
+//		}
+//		else if (arr[mid] > k)
+//		{
+//			right = mid - 1;
+//		}
+//		else
+//		{
+//			printf("找到了:%d", mid);
+//			break;
+//		}
+//	}
+//	if (left > right)
+//	{
+//		printf("找不到\n");
+//	}
+//	return 0;
+//}
+
+//打印一串字符，从两边向中间显示
+//int main()
+//{
+//	char arr1[] = "welcome to china";
+//	char arr2[] = "################";
+//	int left = 0;
+//	int right = strlen(arr1) - 1;
+//
+//	while (left <= right)
+//	{
+//		arr2[left] = arr1[left];
+//		arr2[right] = arr1[right];
+//		printf("%s",arr2);
+//		Sleep(1000);//休眠1秒钟
+//		system("cls");//清空屏幕
+//		left++;
+//		right--;
+//	}
+//	printf("%s", arr2);
+//	return 0;
+//}
+
 int main()
 {
-	int arr[] = { 1,2,3,4,5,6,7,8,9,10,11,12 };
-	int k = 8;//要查找的数字
-	int sz = sizeof(arr) / sizeof(arr[0]);//求数组中元素的个数；
-	int left = 0;
-	int right = sz - 1;
-	while (left <= right )
+	printf("登录请输入密码：>");
+	char PassWord[] = "1,2,3,4,5,a,b,c";
+	char UserPassWord[] = "0";
+	int i = 1;
+	
+	
+	while (i < 4)
 	{
-		int mid = (left + right) / 2;
-		if (arr[mid] < k)
+		scanf("%s", &UserPassWord);
+		if (UserPassWord == PassWord)
 		{
-			left = mid + 1;
-		}
-		else if (arr[mid] > k)
-		{
-			right = mid - 1;
+			printf("密码正确，登录成功\n");
+			break;
 		}
 		else
 		{
-			printf("找到了:%d", mid);
-			break;
+			printf("密码错误，请重新输入");
+				i++;
 		}
-	}
-	if (left > right)
-	{
-		printf("找不到\n");
 	}
 	return 0;
 }
