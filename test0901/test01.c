@@ -621,17 +621,153 @@
 
 //求两个数值的最大公约数(方法二)
 //辗转相除法
-int main()
-{
-	int a = 0;
-	int b = 0;
-	scanf("%d%d", &a, &b);
-	int max = 0;
-	while (max = a % b)
-	{
-		a = b;
-		b = max;
-	}
-	printf("这两个数的最大公约数是：%d", b);
-	return 0;
-}
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	scanf("%d%d", &a, &b);
+//	int max = 0;
+//	while (max = a % b)
+//	{
+//		a = b;
+//		b = max;
+//	}
+//	printf("这两个数的最大公约数是：%d", b);
+//	return 0;
+//}
+
+//计算1000-2000年之间的闰年(方法一)
+//int main()
+//{
+//	int year = 0;
+//	int count = 0;
+//	for ( year = 1000; year <= 2000; year++)
+//	{
+//		//判断year是不是闰年
+//		//1.能被4整除，不能被100整除是闰年
+//		//2.能被400整除是闰年
+//		if (0 == year % 4)
+//		{
+//			if (year % 100 != 0)
+//			{
+//				printf("%d ", year);
+//				count++;
+//			}
+//		}
+//		if (0 == year % 400)
+//		{
+//			printf("%d ", year);
+//			count++;
+//		}
+//	}
+//	printf("\ncont = %d", count);
+//	return 0;
+//}
+
+//计算1000-2000年之间的闰年(方法二)
+//int main()
+//{
+//	int year = 0;
+//	int count = 0;
+//	for ( year = 1000; year <= 2000; year++)
+//	{
+//		//判断year是不是闰年
+////		//1.能被4整除，不能被100整除是闰年
+////		//2.能被400整除是闰年
+//		if (((year % 4 ==0) && (year % 100 != 0)) || (year % 400 == 0))
+//		{
+//			printf("%d ", year);
+//			count++;
+//		}
+//	}
+//	printf("\ncount = %d", count);
+//	return 0;
+//}
+
+//判断100-200之间的素数
+//素数=质数，只能被1和他本身整除
+// 方法一
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int count = 0;
+//	for ( b = 100; b < 200; b++)
+//	{
+//		for ( a = 2; a < b; a++)//产生2到b-1之间的数字,
+//		{
+//			if (b % a == 0)//试验b除以2到b-1之间的数
+//			{
+//				break;
+//			}
+//		}
+//		if (a == b)
+//		{
+//			count++;
+//			printf("%d ", b);
+//		}
+//	}
+//	printf("\ncount = %d", count);
+//	return 0;
+//}
+
+// 方法二
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int count = 0;
+//	for ( b = 100; b < 200; b++)
+//	{
+//		int flag = 1;
+//		for ( a = 2; a < b; a++)//产生2到b-1之间的数字,
+//		{
+//			if (b % a == 0)//试验b除以2到b-1之间的数
+//			{
+//				flag = 0;
+//				break;
+//			}
+//		}
+//		if (flag == 1)
+//		{
+//			count++;
+//			printf("%d ", b);
+//		}
+//	}
+//	printf("\ncount = %d", count);
+//	return 0;
+//}
+
+//方法三
+//优化后
+//m = a * b
+//a和b中一定至少有一个数字是 <= 开平方m的
+//16 = 2 * 8 = 4 * 4
+
+//sqrt  是开平方函数   使用 math.h
+//#include <math.h>
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int count = 0;
+//	for (b = 100; b < 200; b++)//可以再优化成 for (b = 100; b < 200; b+=2)
+//	{
+//		int flag = 1;
+//		for (a = 2; a <= sqrt(b); a++)//产生2到之间的数字,
+//		{
+//			if (b % a == 0)//试验b除以2到b-1之间的数
+//			{
+//				flag = 0;
+//				break;
+//			}
+//		}
+//		if (flag == 1)
+//		{
+//			count++;
+//			printf("%d ", b);
+//		}
+//	}
+//	printf("\ncount = %d", count);
+//	return 0;
+//}
