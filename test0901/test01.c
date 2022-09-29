@@ -771,3 +771,46 @@
 //	printf("\ncount = %d", count);
 //	return 0;
 //}
+
+
+//2022.09.30
+//1.关机
+//执行程序，1分钟后关机，输入 你很厉害 取消关机
+//C语言提供 system() 来执行系统命令  使用stdlib.h
+
+//使用goto语句
+//goto 跳转语句，跳转到后面的标签，只能再一个函数范围内跳转，不能跨函数，
+//一般只用于多层嵌套中，跳转
+//#include<stdlib.h>
+//#include<string.h>
+//int main()
+//{
+//	char input[20] = { 0 };
+//	system("shutdown -s -t 60");//设置60秒关机
+//
+//	again://标签后分号
+//	printf("你的电脑1分钟后关机，如果输入： 你很厉害  ，就取消关机\n");
+//	scanf("%s", input);
+//	if (strcmp(input ,"你很厉害") == 0)
+//	{
+//		system("shutdown -a");
+//	}
+//	else
+//	{
+//		goto again;//goto 跳转语句，跳转到后面的标签，
+//	}
+//	return 0;
+//}
+
+//2.库函数
+//参考网站 www.cplusplus.com
+//C++官方网站，http://zh.cppreference.com
+
+int main()
+{
+	char arr1[20] = { 0 };
+	char arr2[] = "hello";
+	strcpy(arr1, arr2);
+	printf("%s", arr1);
+	return 0;
+}
