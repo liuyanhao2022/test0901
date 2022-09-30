@@ -563,16 +563,15 @@
 //}
 
 //2022.09.29
-//求3个输入值的从大到小输出(方法二)没写出来
-//void comp(tmp1, tmp2)
+//求3个输入值的从大到小输出(方法二)使用函数
+//void comp(int* ptmp1, int* ptmp2)
 //{
-//	if (tmp1 < tmp2)
+//	if (*ptmp1 < *ptmp2)
 //	{
-//		int big = tmp2;
-//		tmp2 = tmp1;
-//		tmp1 = big;
+//		int big = *ptmp2;
+//		*ptmp2 = *ptmp1;
+//		*ptmp1 = big;
 //	}
-//	return tmp1, tmp2;
 //}
 //int main()
 //{
@@ -580,9 +579,9 @@
 //	int b = 0;
 //	int c = 0;
 //	scanf("%d%d%d", &a, &b, &c);
-//	comp(a, b);
-//	comp(a, c);
-//	comp(b, c);
+//	comp(&a, &b);
+//	comp(&a, &c);
+//	comp(&b, &c);
 //	printf("这三个数字从大到小的顺序是：%d %d %d", a, b, c);
 //	return 0;
 //}
@@ -802,15 +801,276 @@
 //	return 0;
 //}
 
-//2.库函数
-//参考网站 www.cplusplus.com
-//C++官方网站，http://zh.cppreference.com
+////2.库函数
+////参考网站 www.cplusplus.com
+////C++官方网站，http://zh.cppreference.com
+//
+//int main()
+//{
+//	char arr1[20] = { 0 };
+//	char arr2[] = "hello";
+//	strcpy(arr1, arr2);
+//	printf("%s", arr1);
+//	return 0;
+//}
 
+//2022.10.3
+//自定义函数，参考库函数，有返回值的类型，需要传入的参数
+//取最大值函数，比较两个值，输出最大值
+//int 是返回值类型，get_max（int x , int y）是自定义的函数名，int x int y 指的接受数据类型
+//z为返回值
+//int get_max(int x, int y)
+//{
+//	int z = 0;
+//	if (x>y)
+//	{
+//		z = x;
+//	}
+//	else
+//	{
+//		z = y;
+//	}
+//	return z;
+//}
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int max = get_max(a, b);
+//	printf("MAX是：%d", max);
+//	return 0;
+//}
+
+//2022.10.04
+//自定义函数
+// 函数返回类型的地方写出： void，表示这个函数不返回任何值，也不需要返回
+//交换两个整型变量，错误写法,没有传入变量的地址，导致函数达不到对应的效果
+
+//Swap1在被调用的时候，实参传给形参，其实形参就是实参的一份临时拷贝
+// 改变形参，不能改变实参
+//void Swap1(int x, int y)//只是把a和b的值传过来了，重新创建新的空间x,y，不会对主函数中的a,b造成影响
+//{
+//	int z = 0;
+//	z = x;
+//	x = y;
+//	y = z;
+//}
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	printf("交换前：a=%d b=%d\n", a, b);
+//	Swap1(a, b);//传值调用
+//	printf("交换后：a=%d b=%d\n", a, b);
+//	return 0;
+//}
+
+//指针变量示例
+//int main()
+//{
+//	int a = 10;//创建4个字节的空间
+//	int* pa = &a;//pa就是一个指针变量，对应a的内存地址,int*代表着这是一个指针变量
+//	*pa = 20;//*pa 等同于int a ，*pa通过指针变量直接可以对int a进行操作
+//	printf("a:%d\n", a);
+//	return 0;
+//}
+
+//改良后，使用指针变量解决
+//void Swap2(int* pa, int* pb)
+//{
+//	int z = 0;
+//	z = *pa;
+//	*pa = *pb;
+//	*pb = z;
+//}
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	printf("交换前：a=%d b=%d\n", a, b);
+//	Swap2(&a, &b);传址调用
+//	printf("交换后：a=%d b=%d\n", a, b);
+//	return 0;
+//}
+
+//实际参数（实参）
+//真实传给函数的参数，叫实参，可以是：常量，变量，表达式，函数等。
+//进行函数调用时，都必须有确定的值，一边把这些值传送给形参。
+//例如上个程序中，主程序中的  Swap(&a, &b);  其中 &a和&b就是实参
+
+//形式参数（形参）
+//形式参数是指函数名后括号中的变量，因为形参只有在函数调用的过程中实例化（内存单元），所以叫形式参数。
+//形参当函数调用完成之后就自动销毁了，因此形参只在函数中有效
+//例如上个程序中，void Swap(int* pa, int* pb)    其中int* pa 和int* pb 就是形参
+
+//函数的调用：
+//1.传值调用
+//		函数的形参和实参分别占有不同的内存块，对形参的修改不会影响实参
+//2.传址调用
+//		*传址调用是把函数外部创建变量的内存地址传递给函数参数的一种调用函数的方式
+//		*这种传参方式可以让函数和函数外边的变量建立起真正的联系，也就是函数内部可以直接操作
+//		 函数外部的变量
+
+//使用函数打印出100~200之间的质数
+//#include <math.h>
+//
+//int is_prime(int b)
+//{
+//	for (int i = 2; i <= sqrt(b); i++)
+//	{
+//		if (b % i == 0)
+//		{
+//			return 0;
+//		}
+//		
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	int a = 0;
+//	int count = 0;
+//	for ( a = 100; a <= 200; a++)
+//	{
+//		if (is_prime(a) == 1)//传值调用
+//		{
+//			count++;
+//			printf("%d ", a);
+//		}
+//	}
+//	printf("\ncount : %d", count);
+//	return 0;
+//}
+
+//2022.10.05
+//编写自定义函数，判断是否为闰年，是返回1，不是返回0
+//int is_leap_year(int a)
+//{
+//	if (((a % 4 == 0) && (a % 100 != 0)) || (a % 400 == 0))
+//	{
+//		return 1;
+//	}
+//	else
+//		return 0;
+//}
+//
+//int main()
+//{
+//	for (int y = 1000; y <= 2000; y++)
+//	{
+//		if (is_leap_year(y))
+//		{
+//			printf("%d ", y);
+//		}
+//	}
+//	return 0;
+//}
+
+//一个函数不写返回类型，默认返回int类型
+//简化后
+//int is_leap_year(int a)
+//{
+//	return (((a % 4 == 0) && (a % 100 != 0)) || (a % 400 == 0));
+//}
+
+//编写自定义函数，在一个有序数组中，使用二分法查找
+//找到返回下标，找不到返回-1
+//int binary_search(int a[], int b, int c)
+//{
+//	int left = 0;
+//	int right = c - 1;
+//	while (left <= right)
+//	{
+//		int mid = (left + right) / 2;
+//		if (a[mid] > b)
+//		{
+//			right = mid - 1;
+//		}
+//		else if (a[mid] < b)
+//		{
+//			left = mid + 1;
+//		}
+//		else
+//		{
+//			return mid;
+//		}
+//	}
+//	return -1;
+//}
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int k = 7;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	//数组arr传参，实际上传递的不是数组的本身
+//	//仅仅传过去了数组首元素的地址
+//	int ret = (binary_search(arr, k, sz));
+//	if (-1 == ret)
+//	{
+//		printf("找不到\n");
+//	}
+//	else
+//	{
+//		printf("查找的下标为：%d", ret);
+//	}
+//	return 0;
+//}
+
+//2022.10.21学习
+//递归，思路大事化小
+//递归，求n的阶乘
+//int is_n_dedigui(int a)
+//{
+//	int b = 0;
+//	if (a != 1)
+//	{
+//		b = a * is_n_dedigui(a - 1);
+//		return b;
+//	}
+//	else
+//		return a;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", & n);
+//	int c = is_n_dedigui(n);
+//	printf("n的阶乘是：%d", c);
+//	return 0;
+//}
+
+//2023.02.24
+//函数调用分为两种，一.嵌套调用。二.链式访问
+//嵌套调用，函数内调用，其他函数
+//链式访问，把一个函数的返回值当作另外一个函数参数
+// 
+//嵌套调用
+//void t1()
+//{
+//	printf("就这样\n");
+//}
+//
+//void t2()
+//{
+//	t1();
+//}
+//
+//int main()
+//{
+//	t2();
+//	return 0;
+//}
+
+//链式访问
 int main()
 {
-	char arr1[20] = { 0 };
-	char arr2[] = "hello";
-	strcpy(arr1, arr2);
-	printf("%s", arr1);
+	char s[] = "你好啊";
+	char ds[20] = { 0 };
+	printf("%s\n", strcpy(ds, s));
 	return 0;
 }
