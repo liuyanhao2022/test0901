@@ -1067,10 +1067,72 @@
 //}
 
 //链式访问
+//int main()
+//{
+//	char s[] = "你好啊";
+//	char ds[20] = { 0 };
+//	printf("%s\n", strcpy(ds, s));
+//	return 0;
+//}
+
+//编译器是从上往下编译的，函数使用前需要先声明一下，后使用。
+//函数声明（使用方法）放到头文件中，函数定义放在.c文件中可以实现代码隐藏，生成静态库（.lib文件）
+//其他人可以根据引用.h文件和导入.lib文件实现功能
+//#pragma comment(lib,"xxx.lib")//导入lib文件的方法，xxx.lib代表引用lib文件
+
+//int main()
+//{
+//	int a = 30;
+//	int b = 90;
+//	int Add(x, y);//引用的函数放在主函数之后，需要提前声明，否则会告警。因为编译器是从上往下编译的
+//	int c = Add(a, b);
+//	printf("%d\n", c);
+//	return 0;
+//}
+//
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+
+//例如写一个加减法功能，交给3个人去写。
+//程序员1写的加法部分，写出来 add.h  和  add.c 文件
+//程序员2写的减法部分，写出来 aub.h  和  aub.c 文件
+//程序员3写的成法部分，写主程序test01.c 文件,引用程序员1和程序员2写的程序
+//#include "add.h"
+//#include "sub.h"
+//
+//int main()
+//{
+//	int a = 30;
+//	int b = 40;
+//	int c = Add(a, b);
+//	int d = Sub(b, a);
+//	printf("%d\n", c);
+//	printf("%d\n", d);
+//	return 0;
+//}
+
+//2023.02.27
+//函数递归，指的在函数内调用自己。思路，把一个大的模型，化成小的模型，去处理
+//存在限制条件，当满足这个限制条件的时候，递归便不在继续
+//每次递归调用之后越来越接近这个限制条件
+//需要注意，使用不当容易造成，栈溢出
+
+//使用函数递归，实现接受一个无符号整形数，按照顺序打印输入的每一位。例如输入：123，打印：1 2 3
+void print(unsigned int n)
+{
+	if (n > 9)
+	{
+		print(n / 10);
+	}
+	printf("%d ", (n % 10));
+}
+
 int main()
 {
-	char s[] = "你好啊";
-	char ds[20] = { 0 };
-	printf("%s\n", strcpy(ds, s));
+	unsigned int a = 0;
+	scanf("%u", &a);
+	print(a);
 	return 0;
 }
